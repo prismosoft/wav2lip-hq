@@ -4,7 +4,6 @@ import time
 
 from .dist_util import get_dist_info, master_only
 
-
 class MessageLogger():
     """Message logger for printing.
 
@@ -148,7 +147,7 @@ def get_env_info():
     import torch
     import torchvision
 
-    from basicsr.version import __version__
+    #from basicsr.version import __version__
     msg = r"""
                 ____                _       _____  ____
                / __ ) ____ _ _____ (_)_____/ ___/ / __ \
@@ -162,7 +161,7 @@ def get_env_info():
   \____/ \____/ \____/ \____/  /_____/\____/ \___//_/|_|  (_)
     """
     msg += ('\nVersion Information: '
-            f'\n\tBasicSR: {__version__}'
+            #f'\n\tBasicSR: {__version__}'
             f'\n\tPyTorch: {torch.__version__}'
             f'\n\tTorchVision: {torchvision.__version__}')
     return msg
