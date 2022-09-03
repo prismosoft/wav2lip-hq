@@ -108,8 +108,8 @@ logger:
   save_checkpoint_freq: !!float 25e2
   use_tb_logger: true
   wandb:
-    project: ~
-    resume_id: ~
+    project: Wav2Lip-HQ
+    resume_id: prismosoft
 
 # dist training settings
 dist_params:
