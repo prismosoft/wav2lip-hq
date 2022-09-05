@@ -44,6 +44,7 @@ network_d:
 path:
   pretrain_network_g: ~
   strict_load_g: true
+  resume_state: checkpoints/pretrained.state
 
 # training settings
 train:
