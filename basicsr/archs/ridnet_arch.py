@@ -12,7 +12,7 @@ class MeanShift(nn.Conv2d):
         rgb_range (int): Maximum value of RGB.
         rgb_mean (list[float]): Mean for RGB channels.
         rgb_std (list[float]): Std for RGB channels.
-        sign (int): For substraction, sign is -1, for addition, sign is 1.
+        sign (int): For subtraction, sign is -1, for addition, sign is 1.
             Default: -1.
         requires_grad (bool): Whether to update the self.weight and self.bias.
             Default: True.
@@ -32,10 +32,6 @@ class EResidualBlockNoBN(nn.Module):
     """Enhanced Residual block without BN.
 
     There are three convolution layers in residual branch.
-
-    It has a style of:
-        ---Conv-ReLU-Conv-ReLU-Conv-+-ReLU-
-         |__________________________|
     """
 
     def __init__(self, in_channels, out_channels):

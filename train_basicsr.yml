@@ -18,6 +18,7 @@ datasets:
 
     gt_size: 128
     use_flip: true
+    use_hflip: true
     use_rot: true
 
     # data loader
@@ -36,7 +37,7 @@ network_g:
   num_block: 23
 
 network_d:
-  type: VGGStyleDiscriminator128
+  type: VGGStyleDiscriminator
   num_in_ch: 3
   num_feat: 64
 
@@ -116,5 +117,3 @@ logger:
 dist_params:
   backend: nccl
   port: 29500
-
-

@@ -10,8 +10,7 @@ class PCDAlignment(nn.Module):
     """Alignment module using Pyramid, Cascading and Deformable convolution
     (PCD). It is used in EDVR.
 
-    Ref:
-        EDVR: Video Restoration with Enhanced Deformable Convolutional Networks
+    ``Paper: EDVR: Video Restoration with Enhanced Deformable Convolutional Networks``
 
     Args:
         num_feat (int): Channel number of middle features. Default: 64.
@@ -248,8 +247,8 @@ class EDVR(nn.Module):
     """EDVR network structure for video super-resolution.
 
     Now only support X4 upsampling factor.
-    Paper:
-        EDVR: Video Restoration with Enhanced Deformable Convolutional Networks
+
+    ``Paper: EDVR: Video Restoration with Enhanced Deformable Convolutional Networks``
 
     Args:
         num_in_ch (int): Channel number of input image. Default: 3.
@@ -297,7 +296,7 @@ class EDVR(nn.Module):
         else:
             self.conv_first = nn.Conv2d(num_in_ch, num_feat, 3, 1, 1)
 
-        # extrat pyramid features
+        # extract pyramid features
         self.feature_extraction = make_layer(ResidualBlockNoBN, num_extract_block, num_feat=num_feat)
         self.conv_l2_1 = nn.Conv2d(num_feat, num_feat, 3, 2, 1)
         self.conv_l2_2 = nn.Conv2d(num_feat, num_feat, 3, 1, 1)

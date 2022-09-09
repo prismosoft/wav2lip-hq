@@ -39,7 +39,8 @@ class SRGANModel(SRModel):
         # load pretrained models
         load_path = self.opt['path'].get('pretrain_network_d', None)
         if load_path is not None:
-            self.load_network(self.net_d, load_path, self.opt['path'].get('strict_load_d', True))
+            param_key = self.opt['path'].get('param_key_d', 'params')
+            self.load_network(self.net_d, load_path, self.opt['path'].get('strict_load_d', True), param_key)
 
         self.net_g.train()
         self.net_d.train()
@@ -49,6 +50,11 @@ class SRGANModel(SRModel):
             self.cri_pix = build_loss(train_opt['pixel_opt']).to(self.device)
         else:
             self.cri_pix = None
+
+        if train_opt.get('ldl_opt'):
+            self.cri_ldl = build_loss(train_opt['ldl_opt']).to(self.device)
+        else:
+            self.cri_ldl = None
 
         if train_opt.get('perceptual_opt'):
             self.cri_perceptual = build_loss(train_opt['perceptual_opt']).to(self.device)
